@@ -1,0 +1,14 @@
+*.log
+.current_coin
+.current_coin_table
+*.pyc
+__pycache__
+nohup.out
+user.cfg
+.idea/
+.vscode/
+.replit
+venv/
+crypto_trading.db
+apprise.yml
+.DS_Store

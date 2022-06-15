@@ -1,0 +1,39 @@
+[binance_user_config]
+# All config params are explained in depth in the repo.
+
+# API key and Secret key created on Binance
+api_key=vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A
+api_secret_key=NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j
+
+# Starting coin, leave empty when it's the bridge.
+# It has to be in the supported_coin_list
+current_coin=
+
+#Bridge coin of your choice
+bridge=USDT
+
+#com or us, depending on region
+tld=com
+
+#Defines how long the scout history is stored
+hourToKeepScoutHistory=1
+
+#Defines to use either scout_margin or scout_multiplier
+use_margin=no
+
+# It's recommended to use something between 3-7 as scout_multiplier
+scout_multiplier=5
+
+#It's recommended to use something between 0.3 and 1.2 as scout_margin
+scout_margin=0.8
+
+# Controls how many seconds bot should wait between analysis of current prices
+scout_sleep_time=1
+
+# Pre-configured strategies are default and multiple_coins
+strategy=default
+
+# Controls how many minutes to wait before cancelling a limit order (buy/sell) and returning to "scout" mode.
+# 0 means that the order will never be cancelled prematurely.
+buy_timeout=20
+sell_timeout=20

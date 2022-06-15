@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  crypto-trading:
+    image: edeng23/binance-trade-bot
+    container_name: binance_trader
+    working_dir: /app
+    volumes:
+      - ./user.cfg:/app/user.cfg
+      - ./supported_coin_list:/app/supported_coin_list
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    command: python -m binance_trade_bot
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  api:
+    image: edeng23/binance-trade-bot
+    container_name: binance_trader_api
+    working_dir: /app
+    volumes:
+      - ./user.cfg:/app/user.cfg
+      - ./data:/app/data
+      - ./logs:/app/logs
+    ports:
+      - 5123:5123
+    command: gunicorn binance_trade_bot.api_server:app -k eventlet -w 1 --threads 1 -b 0.0.0.0:5123
+    depends_on:
+      - crypto-trading
+
+  sqlitebrowser:
+    image: ghcr.io/linuxserver/sqlitebrowser
+    container_name: sqlitebrowser
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+    volumes:
+      - ./data/config:/config
+      - ./data:/data
+    ports:
+      - 3000:3000

@@ -1,0 +1,42 @@
+spec:
+  name: binance-trade-bot
+  workers:
+  - environment_slug: python
+    git:
+      branch: master
+      repo_clone_url: https://github.com/coinbookbrasil/binance-trade-bot.git
+    envs:
+    - key: API_KEY
+      scope: BUILD_TIME
+      value: "API KEY BINANCE"
+    - key: API_SECRET_KEY
+      scope: BUILD_TIME
+      value: "API_SECRET_KEY"
+    - key: CURRENT_COIN_SYMBOL
+      scope: BUILD_TIME
+      value: "XMR"
+    - key: BRIDGE_SYMBOL
+      scope: BUILD_TIME
+      value: "USDT"
+    - key: TLD
+      scope: BUILD_TIME
+      value: "com"
+    - key: SCOUT_MULTIPLIER
+      scope: BUILD_TIME
+      value: "1"
+    - key: HOURS_TO_KEEP_SCOUTING_HISTORY
+      scope: BUILD_TIME
+      value: "1"
+    - key: STRATEGY
+      scope: BUILD_TIME
+      value: "default"
+    - key: BUY_TIMEOUT
+      scope: BUILD_TIME
+      value: "0"
+    - key: SELL_TIMEOUT
+      scope: BUILD_TIME
+      value: "0"
+    - key: SUPPORTED_COIN_LIST
+      scope: BUILD_TIME
+      value: "ADA ATOM BAT BTT DASH DOGE EOS ETC ICX IOTA NEO OMG ONT QTUM TRX VET XLM XMR"
+    name: binance-trade-bot
